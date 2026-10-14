@@ -3,7 +3,7 @@
 // ==========================================
 
 // Local Flask backend
-const API_URL = "http://127.0.0.1:5000/api/plan-trip";
+const API_URL = "https://planmyyatra-backend.onrender.com/api/plan-trip";
 
 
 // Send trip details to the Flask backend
