@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Plan MyYatra - Smart AI-powered travel planning for India."
+    >
+
+    <title>Plan MyYatra | Smart Travel Planner</title>
+
+    <link rel="stylesheet" href="Css/style.css">
+</head>
+
+<body>
+
+    <div id="welcomeScreen" class="welcome-screen">
+
+        <div class="welcome-overlay"></div>
+
+        <div class="welcome-content reveal">
+
+            <p class="welcome-small">
+                🇮🇳 SMART TRAVEL PLANNING FOR INDIA
+            </p>
+
+            <h1>
+                Welcome to
+                <span>Plan MyYatra</span>
+            </h1>
+
+            <h2>
+                Crafted for meaningful journeys across India
+            </h2>
+
+            <p class="welcome-tagline">
+                From dream escapes to practical itineraries,
+                we build your perfect yatra.
+            </p>
+
+            <p class="welcome-description">
+                Discover scenic escapes, compare transport,
+                plan a realistic budget, and shape a trip that feels effortless.
+            </p>
+
+            <p class="welcome-credit">
+                <span>Developed by</span>
+                <strong>Syed Ammar</strong>
+            </p>
+
+            <button id="startPlanningBtn" class="primary-btn">
+                Start Planning
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="mainWebsite" class="main-website hidden">
+
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="#" class="logo">
+                    <span class="logo-icon">🗺️</span>
+                    <span>Plan MyYatra</span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#planner">Plan</a>
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                </div>
+
+                <button class="nav-button" onclick="scrollToPlanner()">
+                    Start Planning
+                </button>
+            </div>
+        </nav>
+
+        <main>
+
+            <section id="home" class="hero-section">
+                <div class="hero-overlay"></div>
+
+                <div class="hero-content">
+
+                    <div class="hero-copy reveal">
+                        <div class="hero-badge">
+                            ✨ AI-powered travel planning
+                        </div>
+
+                        <h1>
+                            Design your ideal
+                            <span>Indian getaway</span>
+                        </h1>
+
+                        <p>
+                            Explore the best routes, local experiences,
+                            traveler-friendly costs, and optimized plans for unforgettable trips across India.
+                        </p>
+
+                        <div class="hero-buttons">
+                            <button class="primary-btn" onclick="scrollToPlanner()">
+                                ✈️ Start Planning
+                            </button>
+                            <button class="secondary-btn" onclick="scrollToPlanner()">
+                                🗺️ Explore India
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="hero-panel reveal">
+                        <div class="panel-glow"></div>
+
+                        <div class="mini-card destination-card-main">
+                            <div class="card-label">Trending escape</div>
+                            <h3>Shimla</h3>
+                            <p>Mountain views, cozy stays, scenic drives</p>
+                            <span>3-day itinerary</span>
+                        </div>
+
+                        <div class="mini-card stat-card">
+                            <div class="stat-number">4.9/5</div>
+                            <div class="stat-text">Traveler experience</div>
+                        </div>
+
+                        <div class="mini-card route-card-main">
+                            <div class="route-line">
+                                <span>Delhi</span>
+                                <span class="route-arrow">→</span>
+                                <span>Manali</span>
+                            </div>
+                            <div class="route-meta">Route score: 92%</div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="features" class="feature-section">
+                <div class="section-heading reveal">
+                    <p class="section-label dark-label">WHY PEOPLE LOVE IT</p>
+                    <h2>Everything you need for a smoother journey</h2>
+                    <p>Thoughtful planning, clearer decisions, and better travel experiences.</p>
+                </div>
+
+                <div class="feature-grid reveal">
+                    <article class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Smart trip logic</h3>
+                        <p>Build a route based on your destination, travel duration, budget, and preferred transport.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">💸</div>
+                        <h3>Budget clarity</h3>
+                        <p>See transportation, hotel, food, local travel, and activity costs in one clear view.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Local discovery</h3>
+                        <p>Get useful information about destination type, best season, and travel hubs to simplify planning.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="planner" class="planner-section">
+
+                <div class="section-heading reveal">
+                    <p class="section-label">BUILD YOUR YATRA</p>
+                    <h2>Plan your perfect trip in minutes</h2>
+                    <p>Tell us where you’re starting, where you want to go, and how you want to travel.</p>
+                </div>
+
+                <div class="planner-card reveal">
+                    <form id="tripForm" class="trip-form">
+
+                        <div class="form-group">
+                            <label for="from">Starting location</label>
+                            <input type="text" id="from" name="from" placeholder="e.g. Delhi" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <input type="text" id="destination" name="destination" list="destinationSuggestions" placeholder="e.g. Shimla" required>
+                            <datalist id="destinationSuggestions">
+                                <option value="Agartala"></option>
+                                <option value="Agra"></option>
+                                <option value="Aizawl"></option>
+                                <option value="Ahmedabad"></option>
+                                <option value="Ajanta Caves"></option>
+                                <option value="Ajmer"></option>
+                                <option value="Alappuzha"></option>
+                                <option value="Alchi"></option>
+                                <option value="Alibaug"></option>
+                                <option value="Almora"></option>
+                                <option value="Alwar"></option>
+                                <option value="Amarkantak"></option>
+                                <option value="Amaravati"></option>
+                                <option value="Amritsar"></option>
+                                <option value="Anandpur Sahib"></option>
+                                <option value="Anjuna"></option>
+                                <option value="Aru Valley"></option>
+                                <option value="Araku Valley"></option>
+                                <option value="Athirappilly"></option>
+                                <option value="Aurangabad"></option>
+                                <option value="Auroville"></option>
+                                <option value="Ayodhya"></option>
+                                <option value="Badami"></option>
+                                <option value="Badrinath"></option>
+                                <option value="Baga"></option>
+                                <option value="Bagh"></option>
+                                <option value="Bakkhali"></option>
+                                <option value="Bandhavgarh National Park"></option>
+                                <option value="Bandipur"></option>
+                                <option value="Bankura"></option>
+                                <option value="Baratang"></option>
+                                <option value="Barmer"></option>
+                                <option value="Bastar"></option>
+                                <option value="Bathinda"></option>
+                                <option value="Bekal"></option>
+                                <option value="Belur"></option>
+                                <option value="Bengaluru"></option>
+                                <option value="Bhandardara"></option>
+                                <option value="Bharatpur"></option>
+                                <option value="Bhimbetka"></option>
+                                <option value="Bhitarkanika"></option>
+                                <option value="Bhojpur"></option>
+                                <option value="Bhopal"></option>
+                                <option value="Bhubaneswar"></option>
+                                <option value="Bhuj"></option>
+                                <option value="Bikaner"></option>
+                                <option value="Bir Billing"></option>
+                                <option value="Bishnupur"></option>
+                                <option value="Bodh Gaya"></option>
+                                <option value="Bomdila"></option>
+                                <option value="Borra Caves"></option>
+                                <option value="Bundi"></option>
+                                <option value="Calangute"></option>
+                                <option value="Candolim"></option>
+                                <option value="Chamba"></option>
+                                <option value="Champhai"></option>
+                                <option value="Champaner Pavagadh"></option>
+                                <option value="Chandigarh"></option>
+                                <option value="Chandipur"></option>
+                                <option value="Cherrapunji"></option>
+                                <option value="Chidambaram"></option>
+                                <option value="Chikmagalur"></option>
+                                <option value="Chiplun"></option>
+                                <option value="Chitrakote Falls"></option>
+                                <option value="Chittorgarh"></option>
+                                <option value="Chittoor"></option>
+                                <option value="Chopta"></option>
+                                <option value="Coimbatore"></option>
+                                <option value="Coorg"></option>
+                                <option value="Coonoor"></option>
+                                <option value="Courtallam"></option>
+                                <option value="Daman"></option>
+                                <option value="Dandeli"></option>
+                                <option value="Darjeeling"></option>
+                                <option value="Dawki"></option>
+                                <option value="Dehradun"></option>
+                                <option value="Deoghar"></option>
+                                <option value="Delhi"></option>
+                                <option value="Dharamshala"></option>
+                                <option value="Dhanaulti"></option>
+                                <option value="Dibrugarh"></option>
+                                <option value="Digha"></option>
+                                <option value="Diu"></option>
+                                <option value="Divar Island"></option>
+                                <option value="Dooars"></option>
+                                <option value="Dudhsagar Falls"></option>
+                                <option value="Dukki"></option>
+                                <option value="Dzukou Valley"></option>
+                                <option value="Dwarka"></option>
+                                <option value="Ellora Caves"></option>
+                                <option value="Fatehpur Sikri"></option>
+                                <option value="Gandikota"></option>
+                                <option value="Gangotri"></option>
+                                <option value="Gangtok"></option>
+                                <option value="Gaya"></option>
+                                <option value="Gir National Park"></option>
+                                <option value="Girnar"></option>
+                                <option value="Goa"></option>
+                                <option value="Gokarna"></option>
+                                <option value="Golconda Fort"></option>
+                                <option value="Gopalpur"></option>
+                                <option value="Gorakhpur"></option>
+                                <option value="Gulmarg"></option>
+                                <option value="Guwahati"></option>
+                                <option value="Gwalior"></option>
+                                <option value="Haflong"></option>
+                                <option value="Hampi"></option>
+                                <option value="Haridwar"></option>
+                                <option value="Havelock Island"></option>
+                                <option value="Himachal"></option>
+                                <option value="Hisar"></option>
+                                <option value="Horsley Hills"></option>
+                                <option value="Hyderabad"></option>
+                                <option value="Igatpuri"></option>
+                                <option value="Imphal"></option>
+                                <option value="Indore"></option>
+                                <option value="Itanagar"></option>
+                                <option value="Jabalpur"></option>
+                                <option value="Jagdalpur"></option>
+                                <option value="Jaipur"></option>
+                                 <option value="Jaisalmer"></option>
+                                <option value="Jalpaiguri"></option>
+                                <option value="Jammu"></option>
+                                <option value="Jampui Hills"></option>
+                                <option value="Jamshedpur"></option>
+                                <option value="Jawhar"></option>
+                                <option value="Jiwaji University"></option>
+                                <option value="Jodhpur"></option>
+                                <option value="Jowai"></option>
+                                <option value="Kakinada"></option>
+                                <option value="Kanchipuram"></option>
+                                <option value="Kangla Fort"></option>
+                                <option value="Kanyakumari"></option>
+                                <option value="Kargil"></option>
+                                <option value="Karnal"></option>
+                                <option value="Kasaragod"></option>
+                                <option value="Kasol"></option>
+                                <option value="Kavaratti"></option>
+                                <option value="Kaziranga National Park"></option>
+                                <option value="Kedarnath"></option>
+                                <option value="Keibul Lamjao National Park"></option>
+                                <option value="Khajjiar"></option>
+                                <option value="Khajuraho"></option>
+                                <option value="Khammam"></option>
+                                <option value="Khandala"></option>
+                                <option value="Khonoma"></option>
+                                <option value="Kinnaur"></option>
+                                <option value="Kodaikanal"></option>
+                                <option value="Kohima"></option>
+                                <option value="Kochi"></option>
+                                <option value="Kodaikanal"></option>
+                                <option value="Kollam"></option>
+                                <option value="Kolhapur"></option>
+                                <option value="Kolkata"></option>
+                                <option value="Konark"></option>
+                                <option value="Koraput"></option>
+                                <option value="Kota"></option>
+                                <option value="Kovalam"></option>
+                                <option value="Kudremukh"></option>
+                                <option value="Kumbakonam"></option>
+                                <option value="Kumbhalgarh"></option>
+                                <option value="Kurseong"></option>
+                                <option value="Kurukshetra"></option>
+                                <option value="Kushinagar"></option>
+                                <option value="Lachen"></option>
+                                <option value="Ladakh"></option>
+                                <option value="Lahaul"></option>
+                                <option value="Laitlum"></option>
+                                <option value="Lansdowne"></option>
+                                <option value="Leh"></option>
+                                <option value="Lepakshi"></option>
+                                <option value="Lohaghat"></option>
+                                <option value="Loktak Lake"></option>
+                                <option value="Long Island"></option>
+                                <option value="Lucknow"></option>
+                                <option value="Lunglei"></option>
+                                <option value="Machilipatnam"></option>
+                                <option value="Madurai"></option>
+                                <option value="Mahabaleshwar"></option>
+                                <option value="Mahabalipuram"></option>
+                                <option value="Majuli"></option>
+                                <option value="Makut"></option>
+                                <option value="Malvan"></option>
+                                <option value="Manali"></option>
+                                <option value="Manas National Park"></option>
+                                <option value="Mandi"></option>
+                                <option value="Mandawa"></option>
+                                <option value="Mandarmani"></option>
+                                <option value="Mangaluru"></option>
+                                <option value="Mawsynram"></option>
+                                <option value="Mcleod Ganj"></option>
+                                <option value="Mechuka"></option>
+                                <option value="Meerut"></option>
+                                <option value="Munnar"></option>
+                                <option value="Murudeshwar"></option>
+                                <option value="Murshidabad"></option>
+                                <option value="Mussoorie"></option>
+                                <option value="Mysuru"></option>
+                                <option value="Nagarhole"></option>
+                                <option value="Nagpur"></option>
+                                <option value="Nainital"></option>
+                                <option value="Namsai"></option>
+                                <option value="Namchi"></option>
+                                <option value="Nashik"></option>
+                                <option value="Nathula Pass"></option>
+                                <option value="Nellore"></option>
+                                <option value="Netarhat"></option>
+                                <option value="Nohkalikai Falls"></option>
+                                <option value="Nongriat"></option>
+                                <option value="Ooty"></option>
+                                <option value="Orchha"></option>
+                                <option value="Pachmarhi"></option>
+                                <option value="Pahalgam"></option>
+                                <option value="Pahalgam Valley"></option>
+                                <option value="Palolem"></option>
+                                <option value="Panchgani"></option>
+                                <option value="Pangong Lake"></option>
+                                <option value="Panipat"></option>
+                                <option value="Papikondalu"></option>
+                                <option value="Parasnath"></option>
+                                <option value="Pasighat"></option>
+                                <option value="Patain"></option>
+                                <option value="Patna"></option>
+                                <option value="Pattadakal"></option>
+                                <option value="Pelling"></option>
+                                <option value="Pench National Park"></option>
+                                <option value="Phawngpui"></option>
+                                <option value="Pithoragarh"></option>
+                                <option value="Pondicherry"></option>
+                                <option value="Port Blair"></option>
+                                <option value="Puducherry"></option>
+                                <option value="Puri"></option>
+                                <option value="Pushkar"></option>
+                                <option value="Raghurajpur"></option>
+                                <option value="Raipur"></option>
+                                <option value="Rajgir"></option>
+                                <option value="Rajkot"></option>
+                                <option value="Rajahmundry"></option>
+                                <option value="Rameswaram"></option>
+                                <option value="Ranikhet"></option>
+                                <option value="Ranthambore"></option>
+                                <option value="Ravangla"></option>
+                                <option value="Red Fort"></option>
+                                <option value="Rishikesh"></option>
+                                <option value="Roing"></option>
+                                <option value="Ropeway"></option>
+                                <option value="Sabarimala"></option>
+                                <option value="Sakleshpur"></option>
+                                <option value="Sambalpur"></option>
+                                <option value="Sanchi"></option>
+                                <option value="Sangla"></option>
+                                <option value="Sariska"></option>
+                                <option value="Sarnath"></option>
+                                <option value="Sasaram"></option>
+                                <option value="Sawai Madhopur"></option>
+                                <option value="Sela Pass"></option>
+                                <option value="Senapati"></option>
+                                <option value="Serchhip"></option>
+                                <option value="Seta"></option>
+                                <option value="Shantiniketan"></option>
+                                <option value="Shekhawati"></option>
+                                <option value="Shillong"></option>
+                                <option value="Shimla"></option>
+                                <option value="Shirdi"></option>
+                                <option value="Shivamogga"></option>
+                                <option value="Shirui Hills"></option>
+                                <option value="Silvassa"></option>
+                                <option value="Siliguri"></option>
+                                <option value="Simlipal National Park"></option>
+                                <option value="Sohra"></option>
+                                <option value="Solang Valley"></option>
+                                <option value="Somnath"></option>
+                                <option value="Sonamarg"></option>
+                                <option value="South Goa"></option>
+                                <option value="Srisailam"></option>
+                                <option value="Srinagar"></option>
+                                <option value="Sukhna Lake"></option>
+                                <option value="Sultanpur Lodhi"></option>
+                                <option value="Sundarbans"></option>
+                                <option value="Surajkund"></option>
+                                <option value="Surat"></option>
+                                <option value="Tadoba"></option>
+                                <option value="Tawang"></option>
+                                <option value="Tehri"></option>
+                                <option value="Tezpur"></option>
+                                <option value="Thanjavur"></option>
+                                <option value="Thekkady"></option>
+                                <option value="Thiruvananthapuram"></option>
+                                <option value="Tinsukia"></option>
+                                <option value="Tirupati"></option>
+                                <option value="Tiruchirappalli"></option>
+                                <option value="Tso Moriri"></option>
+                                <option value="Tura"></option>
+                                <option value="Udaipur"></option>
+                                <option value="Udupi"></option>
+                                <option value="Ujjain"></option>
+                                <option value="Umiam Lake"></option>
+                                <option value="Unakoti"></option>
+                                <option value="Uttarkashi"></option>
+                                <option value="Vaishali"></option>
+                                <option value="Valparai"></option>
+                                <option value="Varanasi"></option>
+                                <option value="Varkala"></option>
+                                <option value="Vagamon"></option>
+                                <option value="Vijayawada"></option>
+                                <option value="Visakhapatnam"></option>
+                                <option value="Wagad"></option>
+                                <option value="Warangal"></option>
+                                <option value="Wayanad"></option>
+                                <option value="Yamunanagar"></option>
+                                <option value="Yanam"></option>
+                                <option value="Yercaud"></option>
+                                <option value="Yuksom"></option>
+                                <option value="Yumthang Valley"></option>
+                                <option value="Ziro Valley"></option>
+                            </datalist>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="days">Number of days</label>
+                            <input type="number" id="days" name="days" min="1" max="60" placeholder="e.g. 3" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="travelers">Travelers</label>
+                            <input type="number" id="travelers" name="travelers" min="1" max="50" placeholder="e.g. 2" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Trip budget</label>
+                            <input type="number" id="budget" name="budget" min="1" placeholder="e.g. 15000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transportMode">Preferred transport</label>
+                            <select id="transportMode" name="transport_mode">
+                                <option value="auto">Recommend for me</option>
+                                <option value="road">Road / Car</option>
+                                <option value="bus">Bus</option>
+                                <option value="train">Train</option>
+                                <option value="flight">Flight</option>
+                                <option value="combination">Combination</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hotelPreference">Hotel preference</label>
+                            <select id="hotelPreference" name="hotel_preference">
+                                <option value="auto">Based on my budget</option>
+                                <option value="budget">Budget</option>
+                                <option value="standard">Standard</option>
+                                <option value="premium">Premium</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="plan-trip-btn">
+                            ✨ Create My Travel Plan
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="results" class="results-section hidden">
+                <div id="tripResults"></div>
+            </section>
+
+            <section class="process-section">
+                <div class="section-heading reveal">
+                    <p class="section-label dark-label">HOW IT WORKS</p>
+                    <h2>A simple path to a better trip</h2>
+                </div>
+
+                <div class="process-grid reveal">
+                    <div class="process-card">
+                        <span>01</span>
+                        <h3>Tell us your route</h3>
+                        <p>Share the destination, trip length, and traveler count.</p>
+                    </div>
+                    <div class="process-card">
+                        <span>02</span>
+                        <h3>Compare options</h3>
+                        <p>Review transport styles, hotel categories, and budget impact.</p>
+                    </div>
+                    <div class="process-card">
+                        <span>03</span>
+                        <h3>Travel with confidence</h3>
+                        <p>Receive a structured itinerary and a more practical travel plan.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="about-section">
+                <div class="about-content reveal">
+                    <p class="section-label dark-label">ABOUT PLAN MYYATRA</p>
+                    <h2>Your journey, planned smarter.</h2>
+                    <p>
+                        Plan MyYatra brings together destinations, accommodation, transport planning,
+                        route distance, daily structure, and budget awareness in one seamless experience.
+                        It was designed for people who want more than a generic list — they want a realistic,
+                        confident travel plan for India.
+                    </p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 Plan MyYatra</p>
+            <p>Developed by Syed Ammar</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="Js/app.js"></script>
+    <script src="Js/api.js"></script>
+    <script src="Js/itinerary-spots-data.js"></script>
+    <script src="Js/trip.js"></script>
+
+</body>
+</html>
